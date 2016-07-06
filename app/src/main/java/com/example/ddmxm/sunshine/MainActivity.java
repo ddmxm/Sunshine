@@ -3,12 +3,15 @@ package com.example.ddmxm.sunshine;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -56,6 +59,17 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+            //Создаём фейковые данные для Listview. Данные представляют собой погоду на всю неделю.
+            String[] data ={
+                    "Mon - 11/7 - Sunny - 32/16",
+                    "Tue - 12/7 - Rainy - 21/8",
+                    "Wed - 13/7 - Foggy - 23/17",
+                    "Thu - 14/7 - Sunny - 18/11",
+                    "Fri - 15/7 - Sunny - 20/13",
+                    "Sat - 16/7 - Cloudy - 34/10",
+                    "San - 17/7 - Sunny - 37/10"
+            };
+            List<String> weekForecast = new ArrayList<String>(Arrays.asList(data));
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
