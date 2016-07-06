@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        ArrayAdapter<String> mForecastAdapter;
         public PlaceholderFragment() {
         }
 
@@ -70,6 +72,15 @@ public class MainActivity extends ActionBarActivity {
                     "San - 17/7 - Sunny - 37/10"
             };
             List<String> weekForecast = new ArrayList<String>(Arrays.asList(data));
+
+            //Теперь с созданными вручную фейковыми данными создаю ArrayAdapter
+            //ArrayAdapter связывается с ListView
+            mForecastAdapter = new ArrayAdapter<String>(
+                    getActivity(),
+                    R.layout.list_item_forecast,
+                    R.id.list_item_forecast_textview,
+                    weekForecast);
+
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
